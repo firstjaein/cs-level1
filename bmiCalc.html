@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BMI지수를 계산할 수 있습니다.</title>
+</head>
+<body>
+    <div id="introBmi">
+        <h1>BMI란?</h1>
+        <p>체질량 지수(體質量指數, Body Mass Index, BMI)는 인간의 비만도를 나타내는 지수로, 체중과 키의 관계로 계산된다.</p>
+        <p>세계보건기구에 따르면 30이상이면 비만, 25이상이면 과체중이라고 합니다.</p>
+    </div>
+    <hr>
+
+    <div id="userInfo">
+    <form>
+      성별을 선택하세요: 
+      <label for="chk_info1"><input type="checkbox" id="chk_info1" value="male">남성</label>
+      <label for="chk_info2"><input type="checkbox" id="chk_info2" value="female">여성</label> <br>
+      
+      키를 입력하세요: <input type="number" id="height" placeholder="단위: m" >ex)175cm인 경우 1.75<br>
+      체중을 입력하세요: <input type="number" id="weight" placeholder="단위: kg">ex)68kg인 경우 68<br>
+      <br>
+      
+      <input class="submit" type="button"  value="Submit" onclick="calcBmi()" /><br>
+      <input class="submit" type="reset" value="초기화"/><br> 
+      <p id="resultBmi">결과가 이곳에 표시됩니다.</p>
+    </form>
+    </div>
+    <hr>
+
+    <script>
+    function calcBmi(){
+        var height = Number(document.getElementById("height").value);
+        var weight = Number(document.getElementById("weight").value);
+        var resultBmi = weight / (height * height);
+        document.getElementById("resultBmi").innerHTML = "당신의 BMI 지수는  " + resultBmi;
+    }
+    </script>
+</body>
+</html>
