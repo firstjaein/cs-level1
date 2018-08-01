@@ -1,6 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+    #newNickname{
+    border-color: $blue;
+    color: #fff;
+    box-shadow: 0 0 40px 40px $blue inset, 0 0 0 0 $blue;
+    transition: all 150ms ease-in-out;
+  
+    &:hover {
+      box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
+    }
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #2c3e50;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+
+h1 {
+  color: $yellow;
+  font-size: 4rem;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -8,19 +45,20 @@
 </head>
 <body>
     <h1>사용자의 이름을 랜덤으로 만들어 드립니다.</h1>
-    <input class="submit" type="button" id="makeNickname" value="아이디만들기" onclick="makeNickname()"/>
-    <p id="newNickname">새로운 아이디입니다.</p>
+    <input class="submit" type="button" id="makeNickname" value="아이디 생성" onclick="makeNickname()"/>
+    <p>당신의 새로운 아이디는</p><br>
+    <p id="newNickname"></p>
 
 
     <script>
-        var adjName = ["흔들리는","겁없는","망설이는","용감한","찬란한","영광의","불사의","난공불락의","기세등등한","무패의","포기를 모르는"];
+        var adjName = ["흔들리는","겁없는","망설이는","용감한","찬란한","영광의","불사의","난공불락의","기세등등한","무패의","포기를 모르는","행진하는"];
         var nounName = ["갈대","부엉이","김서방","오서방","고양이","대머리독수리","골리앗","브런치","엑스칼리버","샹들리에","버터플라이","옥동자","삼대독자","마키아또"];
 
         function makeNickname() {
             var randAdj = adjName[Math.floor(Math.random() * adjName.length)];
             var randNoun = nounName[Math.floor(Math.random() * nounName.length)];
             var newNickname =[randAdj.concat(" "+randNoun)];
-            document.getElementById("newNickname").innerHTML = "당신의 아이디는  " + newNickname;
+            document.getElementById("newNickname").innerHTML = newNickname;
         }
     </script>
 </body>
